@@ -1,18 +1,18 @@
 import { useState , useEffect } from "react";
 
 function useFetch (url){
-    cosnt [Data ,setData] = useState([]); 
-    cosnt [Loading , setLoading] = useState(true);
+    const [data, setData] = useState([]); 
+    const [loading, setLoading] = useState(true);
     useEffect(()=>{
         fetch(url).then((res)=>{
           return res.json(); 
         }).then((data)=>{
           setData(data);
-          setLoading(true);
+          setLoading(false);
         });
     },[url]);
 
-    return [ Data , Loading ];
+    return { data, loading };
 
 }
 
